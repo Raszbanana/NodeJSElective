@@ -1,53 +1,52 @@
 // --------------------------------------
-// Exercise 1 - Add numbers from string to float
+// Objects
+// --------------------------------------
+// Exercise 1 - Retrieve value from object by key
 
-const numberOne = "1.10";
-const numberTwo = "2.30";
+const alienMessage = {
+	message: "Hello, earthling! I bring peace."
+};
 
-// add those two numbers and show the result
-// you cannot touch line 1 neither line 2
+// Log the message 
 
+console.log(alienMessage.message)
 
 // --------------------------------------
+// Exercise 2 - Defining an object. 
 
+// Create an object that has your name and age. 
 
-// --------------------------------------
-// Exercise 2 - Add the numbers and the total with 2 decimals
-
-const anotherNumberOne = "1.10";
-const anotherNumberTwo = "2.30";
-
-
-// --------------------------------------
-// Exercise 3 - Decimals and average
-
-const one = 10;
-const two = 45;
-const three = 98;
-
-// Show in the console the avg. with 5 decimals
-
-
-
-
+const me = {
+    name: "nikolai",
+    age: 22,
+    hobby: "history"
+}
 
 // --------------------------------------
-// Exercise 4 - Get the character by index
+// Exercise 3 - Add a property 
 
-const letters = "abc";
-// Get me the character "c"
+const stackOverflow = {};
 
+// make a rule called isAllowed and let the value be true
 
+stackOverflow.isAllowed = true;
 
-
-// --------------------------------------
-// Exercise 5 - Replace
-
-const fact = "You are learning javascript!";
-
-// capitalize the J in Javascript
-
+console.log(stackOverflow.isAllowed)
 
 // --------------------------------------
+// Exercise 4 - Remove a property 
 
+const thisSong = {
+	description: "The best song in the world."
+}
+
+// remove the property "description" and add a property called "about" that should say "Just a tribute." 
+
+delete thisSong.description;
+
+thisSong.about = "Just a tribute"
+
+console.log(thisSong)
+
+// --------------------------------------
 
