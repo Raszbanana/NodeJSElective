@@ -24,20 +24,12 @@ app.post("/beers", (req, res) => {
 
 // Read
 app.get("/beers", (req, res) => {
-  res.send(beers);
+  res.send({ data: beers });
 });
 
 app.get("/beers/:id", (req, res) => {
-  let isFound = false;
-  for (let beer of beers) {
-    if (beer.id == req.params.id) {
-      isFound = true;
-      res.send(beer);
-    }
-  }
-  if (!isFound) {
-    res.send("Beer is not on our stocks");
-  }
+  const foundBeer = beers.find((beer) => beer.id === Number(req.params.id));
+  foundBeer ? res.send({ data: foundBeer }) : res.status(204).send({});
 });
 
 // Update
@@ -71,21 +63,10 @@ app.put("/beers/:id", (req, res) => {
 
 // Delete
 app.delete("/beers/:id", (req, res) => {
-  let isFound = false;
-  for (let beer of beers) {
-    if (beer.id == req.params.id) {
-      isFound = true;
-      beers.splice(beer.id, 1);
-      console.log(beers);
-      res.send(
-        "The requested beer has been deleted, the new list looks like this " +
-          beers
-      );
-    }
-  }
-  if (!isFound) {
-    res.send("Beer is not on our stocks");
-  }
+  const deleteId = beers.findIndex((beer) => beer.id === Number(req.params.id));
+  beers.splice(deleteId, 1);
+  console.log({ data: beers });
+  res.send("The requested beer has been deleted");
 });
 
 console.log(beers);
