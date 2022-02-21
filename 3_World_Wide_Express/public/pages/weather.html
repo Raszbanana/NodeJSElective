@@ -69,8 +69,9 @@
     </div>
 
     <script>
-      const cphData = () => {
-        fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
+
+      const cphData = async () => {
+        await fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -94,8 +95,8 @@
           });
       };
 
-      const lndData = () => {
-        fetch("http://worldtimeapi.org/api/timezone/Europe/London")
+      const lndData = async () => {
+        await fetch("http://worldtimeapi.org/api/timezone/Europe/London")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -119,8 +120,8 @@
           });
       };
 
-      const psgData = () => {
-        fetch("http://worldtimeapi.org/api/timezone/Europe/Paris")
+      const psgData = async () => {
+        await fetch("http://worldtimeapi.org/api/timezone/Europe/Paris")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -144,8 +145,8 @@
           });
       };
 
-      const nycData = () => {
-        fetch("http://worldtimeapi.org/api/timezone/America/New_York")
+      const nycData = async () => {
+        await fetch("http://worldtimeapi.org/api/timezone/America/New_York")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -168,10 +169,13 @@
               " days left before new years eve";
           });
       };
-      cphData();
-      lndData();
-      psgData();
-      nycData();
+      function getData() {
+        cphData();
+        lndData();
+        psgData();
+        nycData();
+      }
+      getData();
     </script>
   </body>
 </html>
