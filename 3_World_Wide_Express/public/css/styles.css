@@ -1,0 +1,48 @@
+body {
+  background-image: url("../images/bgbg.PNG");
+}
+
+.main-container {
+  padding: 0.5em;
+  color: #fff;
+}
+
+.wiki {
+  background-color: rgb(200, 148, 52);
+}
+
+.cph-container {
+  text-align: center;
+  border: 3px solid rgb(243, 190, 45);
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: black;
+}
+
+.lnd-container {
+  text-align: center;
+  border: 3px solid rgb(243, 190, 45);
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: black;
+}
+
+.psg-container {
+  text-align: center;
+  border: 3px solid rgb(243, 190, 45);
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: black;
+}
+
+.nyc-container {
+  text-align: center;
+  border: 3px solid rgb(243, 190, 45);
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: black;
+}

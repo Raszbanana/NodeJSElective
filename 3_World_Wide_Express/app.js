@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/weather.html")    
+    res.sendFile(__dirname + "/public/pages/weather.html")    
 })
 
 app.get("/forecast", (req, res) => {
-    res.sendFile(__dirname + "/public/weather.html")
+    res.sendFile(__dirname + "/public/pages/weather.html")
 })
 
 app.listen(3000, () => {

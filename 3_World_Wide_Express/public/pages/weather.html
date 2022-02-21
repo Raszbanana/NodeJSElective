@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cities</title>
+    <base href="/" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="cph-container">
+        <h3>Copenhagen</h3>
+        <form>
+          <input
+            class="wiki"
+            type="button"
+            value="Copenhagen wiki"
+            onclick="window.location.href='https://en.wikipedia.org/wiki/Copenhagen'"
+          />
+        </form>
+        <p id="cph"></p>
+        <p id="cph-day"></p>
+        <p id="cph-left"></p>
+      </div>
+      <div class="lnd-container">
+        <h3>London</h3>
+        <form>
+          <input
+            class="wiki"
+            type="button"
+            value="Copenhagen wiki"
+            onclick="window.location.href='https://en.wikipedia.org/wiki/London'"
+          />
+        </form>
+        <p id="lnd"></p>
+        <p id="lnd-day"></p>
+        <p id="lnd-left"></p>
+      </div>
+      <div class="psg-container">
+        <h3>Paris</h3>
+        <form>
+          <input
+            class="wiki"
+            type="button"
+            value="Copenhagen wiki"
+            onclick="window.location.href='https://en.wikipedia.org/wiki/Paris'"
+          />
+        </form>
+        <p id="psg"></p>
+        <p id="psg-day"></p>
+        <p id="psg-left"></p>
+      </div>
+      <div class="nyc-container">
+        <h3>New York</h3>
+        <form>
+          <input
+            class="wiki"
+            type="button"
+            value="Copenhagen wiki"
+            onclick="window.location.href='https://en.wikipedia.org/wiki/New_York_City'"
+          />
+        </form>
+        <p id="nyc"></p>
+        <p id="nyc-day"></p>
+        <p id="nyc-left"></p>
+      </div>
+    </div>
+
+    <script>
+      const cphData = () => {
+        fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            const CPH = document.getElementById("cph");
+            const day = document.getElementById("cph-day");
+            const left = document.getElementById("cph-left");
+
+            CPH.innerHTML =
+              "Here is the timezone for " + res.timezone + " " + res.utc_offset;
+
+            day.innerHTML =
+              "It is the number " +
+              res.day_of_year +
+              " day of the year and we are in week " +
+              res.week_number;
+
+            left.innerHTML =
+              "This means there is " +
+              (365 - res.day_of_year) +
+              " days left before new years eve";
+          });
+      };
+
+      const lndData = () => {
+        fetch("http://worldtimeapi.org/api/timezone/Europe/London")
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            const CPH = document.getElementById("lnd");
+            const day = document.getElementById("lnd-day");
+            const left = document.getElementById("lnd-left");
+
+            CPH.innerHTML =
+              "Here is the timezone for " + res.timezone + " " + res.utc_offset;
+
+            day.innerHTML =
+              "It is the number " +
+              res.day_of_year +
+              " day of the year and we are in week " +
+              res.week_number;
+
+            left.innerHTML =
+              "This means there is " +
+              (365 - res.day_of_year) +
+              " days left before new years eve";
+          });
+      };
+
+      const psgData = () => {
+        fetch("http://worldtimeapi.org/api/timezone/Europe/Paris")
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            const CPH = document.getElementById("psg");
+            const day = document.getElementById("psg-day");
+            const left = document.getElementById("psg-left");
+
+            CPH.innerHTML =
+              "Here is the timezone for " + res.timezone + " " + res.utc_offset;
+
+            day.innerHTML =
+              "It is the number " +
+              res.day_of_year +
+              " day of the year and we are in week " +
+              res.week_number;
+
+            left.innerHTML =
+              "This means there is " +
+              (365 - res.day_of_year) +
+              " days left before new years eve";
+          });
+      };
+
+      const nycData = () => {
+        fetch("http://worldtimeapi.org/api/timezone/America/New_York")
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            const CPH = document.getElementById("nyc");
+            const day = document.getElementById("nyc-day");
+            const left = document.getElementById("nyc-left");
+
+            CPH.innerHTML =
+              "Here is the timezone for " + res.timezone + " " + res.utc_offset;
+
+            day.innerHTML =
+              "It is the number " +
+              res.day_of_year +
+              " day of the year and we are in week " +
+              res.week_number;
+
+            left.innerHTML =
+              "This means there is " +
+              (365 - res.day_of_year) +
+              " days left before new years eve";
+          });
+      };
+      cphData();
+      lndData();
+      psgData();
+      nycData();
+    </script>
+  </body>
+</html>
