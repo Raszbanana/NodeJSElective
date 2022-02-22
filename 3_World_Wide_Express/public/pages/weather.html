@@ -16,7 +16,7 @@
           <input
             class="wiki"
             type="button"
-            value="Copenhagen wiki"
+            value="Copenhagen Wiki"
             onclick="window.location.href='https://en.wikipedia.org/wiki/Copenhagen'"
           />
         </form>
@@ -30,7 +30,7 @@
           <input
             class="wiki"
             type="button"
-            value="Copenhagen wiki"
+            value="London wiki"
             onclick="window.location.href='https://en.wikipedia.org/wiki/London'"
           />
         </form>
@@ -58,7 +58,7 @@
           <input
             class="wiki"
             type="button"
-            value="Copenhagen wiki"
+            value="New York wiki"
             onclick="window.location.href='https://en.wikipedia.org/wiki/New_York_City'"
           />
         </form>
@@ -69,9 +69,8 @@
     </div>
 
     <script>
-
       const cphData = () => {
-       fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
+        fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -96,7 +95,7 @@
       };
 
       const lndData = () => {
-         fetch("http://worldtimeapi.org/api/timezone/Europe/London")
+        fetch("http://worldtimeapi.org/api/timezone/Europe/London")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -146,7 +145,7 @@
       };
 
       const nycData = () => {
-          fetch("http://worldtimeapi.org/api/timezone/America/New_York")
+        fetch("http://worldtimeapi.org/api/timezone/America/New_York")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
