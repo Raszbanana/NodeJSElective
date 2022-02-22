@@ -70,8 +70,8 @@
 
     <script>
 
-      const cphData = async () => {
-        await fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
+      const cphData = () => {
+       fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -95,8 +95,8 @@
           });
       };
 
-      const lndData = async () => {
-        await fetch("http://worldtimeapi.org/api/timezone/Europe/London")
+      const lndData = () => {
+         fetch("http://worldtimeapi.org/api/timezone/Europe/London")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -120,8 +120,8 @@
           });
       };
 
-      const psgData = async () => {
-        await fetch("http://worldtimeapi.org/api/timezone/Europe/Paris")
+      const psgData = () => {
+        fetch("http://worldtimeapi.org/api/timezone/Europe/Paris")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
@@ -145,8 +145,8 @@
           });
       };
 
-      const nycData = async () => {
-        await fetch("http://worldtimeapi.org/api/timezone/America/New_York")
+      const nycData = () => {
+          fetch("http://worldtimeapi.org/api/timezone/America/New_York")
           .then((res) => res.json())
           .then((res) => {
             console.log(res);
