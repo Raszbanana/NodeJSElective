@@ -13,13 +13,10 @@ const beers = [
 
 // Create
 app.post("/beers", (req, res) => {
-  let newBeer = req.body;
-  let assignedId = beerIdCounter;
-  newBeer.id = assignedId;
-  beerIdCounter++;
-  beers.push(newBeer);
-  res.send(req.body);
-  console.log(beers);
+  const beerToCreate = req.body;
+  beerToCreate.id = beerIdCounter++;
+  beers.push(beerToCreate);
+  res.send({ data: beerToCreate });
 });
 
 // Read
@@ -34,16 +31,17 @@ app.get("/beers/:id", (req, res) => {
 
 // Update
 app.patch("/beers/:id", (req, res) => {
-  let isFound = false;
-  for (let beer of beers) {
-    if (beer.id == req.params.id) {
-      isFound = true;
-      beer.name = req.body.name;
-      res.send("The beer has been patched");
-    }
-  }
-  if (!isFound) {
-    res.send("Beer is not on our stocks");
+  const foundBeerIndex = beers.findIndex(
+    (beer) => beer.id === Number(req.params.id)
+  );
+  if (foundBeerIndex !== -1) {
+  const foundBeer = beer[foundBeerIndex];
+  const beerToUpdateWith = req.body;
+  const updatedBeer = { ...foundBeer, ...beerToUpdateWith, id: foundBeer.id };
+  beers[foundBeerIndex] = updatedBeer;
+  res.send({ data: updatedBeer });
+  } else {
+    res.status(404).send({});
   }
 });
 
