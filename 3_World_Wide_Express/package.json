@@ -1,8 +1,11 @@
 {
+  "scripts": {
+    "start-dev": "cross-env $env:PORT=3002 nodemon app.js"
+  },
   "dependencies": {
     "express": "^4.17.2"
   },
-  "scripts": {
-    "start": "node app.js"
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

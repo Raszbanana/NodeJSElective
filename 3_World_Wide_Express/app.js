@@ -15,6 +15,10 @@ app.get("/time", (req, res) => {
 //     console.log(process.env.PORT);
 //   });
 
-app.listen(3000, 'localhost', () => {
-    console.log("Listening on port 3000");
+const PORT = process.env.PORT || 5000;
+
+const server = app.listen(PORT, 'localhost', () => {
+    console.log("Listening on port", PORT);
 })
+
+console.log(process.env.PORT);
