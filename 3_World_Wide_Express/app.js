@@ -1,24 +1,41 @@
 const express = require("express");
 const app = express();
-app.use(express.static(__dirname + '/public'));
+
+const fetch = require("node-fetch");
+
+app.use(express.static("public"));
+
+// const { calculateAmountOfCoolDinosaurs } = require("./dinosaurs/dinosaurs.js");
+// console.log(calculateAmountOfCoolDinosaurs());
+
+const dinosaurrouter = require("./routers/dinosaurrouter.js");
+app.use(dinosaurrouter.router);
+
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/frontpage/frontpage.html")  
-})
+    res.sendFile(__dirname + "/public/frontpage/frontpage.html");
+});
 
-app.get("/time", (req, res) => {
-    res.sendFile(__dirname + "/public/pages/time.html")    
-})
+app.get("/welcome", (req, res) => {
+    res.send(`
+        <h1>Welcome to my website</h1>
+        <h2>Take a look ${true}</h2>
+    `);
+});
 
-// For deploying on heroku
-// app.listen(process.env.PORT, '0.0.0.0', () => {
-//     console.log(process.env.PORT);
-//   });
+app.get("/bored", (req, res) => {
+    res.sendFile(__dirname + "/public/activities.html")
+});
 
-const PORT = process.env.PORT || 5000;
+app.get("/proxy", async (req, res) => {
+    const response = await fetch("https://www.google.com")
+    const homepage = await response.text();
+    res.send(homepage);
+});
 
-const server = app.listen(PORT, 'localhost', () => {
-    console.log("Listening on port", PORT);
-})
 
-console.log(process.env.PORT);
+const PORT = process.env.PORT || 9000;
+
+const server = app.listen(PORT, () => {
+    console.log("The server is running on port", server.address().port);
+});

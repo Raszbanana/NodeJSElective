@@ -1,7 +1,9 @@
-const { coolDinosaurs } = require("./dinosaurs/dinosaus.json")
-
-console.log(coolDionosaus)
+const { coolDinosaurs, shittyDinosaurs } = require("./dinosaurs.json");
 
 function amountOfCoolDinosaurs() {
-    return dinosaurs.coolDinosaurs.length;
+    return coolDinosaurs.length;
+}
+
+module.exports = {
+    calculateAmountOfCoolDinosaurs: amountOfCoolDinosaurs
 }

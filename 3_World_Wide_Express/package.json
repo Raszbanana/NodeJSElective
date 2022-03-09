@@ -3,6 +3,7 @@
     "start-dev": "cross-env $env:PORT=3002 nodemon app.js"
   },
   "dependencies": {
+    "node-fetch": "^2.0.0",
     "express": "^4.17.2"
   },
   "devDependencies": {
