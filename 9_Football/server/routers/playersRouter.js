@@ -1,14 +1,19 @@
 import { Router } from "express";
+import db from "../database/createConnection.js"
 
 const playersRouter = Router();
-const players = [
-    {id: 1, name: "John"},
-    {id: 2, name: "myMan"},
-    {id: 3, name: "ThisMan"}
-]
 
-playersRouter.get("/players", (req, res) => {
+playersRouter.get("/api/players", async (req, res) => {
+    const players = await db.all("SELECT * FROM players;");
+
     res.send({data: players})
+})
+
+playersRouter.post("/api/players", async (req, res) => {
+    const { name } = req.body;
+    const { changes } = await db.run(`INSERT INTO players (name) VALUES ('?');`, [name]);
+
+    res.send({rowsAffected: changes})
 })
 
 export default playersRouter;

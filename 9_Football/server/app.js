@@ -6,6 +6,7 @@ import path from "path";
 // app.use(cors());
 
 const app = express();
+app.use(express.json());
 app.use(express.static(path.resolve("../client/public")));
 
 app.use(playersRouter)

@@ -5,7 +5,7 @@
 	let players = [];
 
 	onMount(async () => {
-		 const response = await fetch($baseURL + "/players");
+		 const response = await fetch($baseURL + "/api/players");
 		 const { data: playersArray } = await response.json();
 		 players = playersArray;
 	});
